@@ -1,0 +1,25 @@
+{
+    "name": "com.smpleader.joomla-framework",
+    "description": "Sample App based Joomla Framework",
+    "keywords": ["sample-app","joomla-framework"],
+    "license": "GPL-2.0+",
+    "version": "0.0.1-alpha",
+    "require": {
+        "php": ">=5.5",
+        "joomla/framework": "1.0.*@stable"
+    },
+	"require-dev": {
+		"filp/whoops": "1.0.*@stable"
+	},
+    "scripts": {
+        "post-install-cmd": [
+            "App\\Setup\\InstallScript::postInstall"
+        ]
+    },
+    "autoload": {
+        "psr-0": {
+            "App": ""
+        }
+    },
+    "minimum-stability": "dev"
+}

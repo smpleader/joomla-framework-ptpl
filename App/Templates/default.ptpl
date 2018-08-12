@@ -1,0 +1,35 @@
+<?php use App\View\Renderer\H;
+
+H::html(
+    H::head(
+        H::title( $this->getPartial('title')).
+        H::link( ASSETS_URL.'css/bootstrap.css').
+        H::link( ASSETS_URL.'css/bootstrap-responsive.css').
+        H::link( DEFAULT_THEME.'css/theme.css')
+    ).
+    H::body(
+        H::div( 'class="container-narrow"',
+
+            H::div('class="masthead"',
+                H::ul( 'class="nav nav-pills pull-right"',
+                    H::li( H::a('href="'.BASE_URL.'"', 'Home')).
+                    H::li( H::a('href="'.BASE_URL.'news"', 'Sample news')).
+                    H::li( H::a('href="http://joomla.github.io/joomla-framework/"', 'Docs'))
+
+                ).
+                H::h3('class="muted"', 'Joomla! Framework')
+            ).
+
+            H::hr().
+
+            $this->getPartial('subtitle') .
+            $this->getPartial('message') .
+            $this->getPartial('content') . 
+
+            H::hr().
+            H::div('class="footer"', H::p('&copy; Joomla! Framework 2013'))
+        ).
+        H::script( ASSETS_URL.'js/jquery.js', 0).
+        H::script( ASSETS_URL.'js/bootstrap.min.js', 0)       
+    )
+);

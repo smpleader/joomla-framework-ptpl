@@ -1,0 +1,7 @@
+{
+	"dashboard": "\\Controller\\DashboardController",
+	"dashboard/:task": "\\Controller\\DashboardController",
+	"news": "\\Controller\\NewsController",
+	"news/:task": "\\Controller\\NewsController",
+	"news/:task/:id": "\\Controller\\NewsController"
+}

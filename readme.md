@@ -1,0 +1,1 @@
+A sample code use Ptpl template engine with Joomla framework

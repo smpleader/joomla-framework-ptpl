@@ -1,0 +1,6 @@
+<?php
+if(is_array($this->data['flashBag']) && count($this->data['flashBag'])){
+    foreach( $this->data['flashBag'] as $msg){
+        echo '<div class="alert alert-message">'.$msg. '</div>';
+    }
+}
