@@ -1,42 +1,36 @@
-<?php return [] ; ?>
+<?php  use App\View\Renderer\H;
+extract($this->data);
+return [
+'title'=> 'News',
+'subtitle'=>'<h1 class="page-header">News</h1>',
+'content'=> H::div( 'class="row-fluid"',    
+    count($items) ? 
+    (function($cont='') use($items){
+        foreach($items as $item){
+            $cont .= H::div( 'class="span4"',
+                H::h3( $item->title ).
+                H::p( $item->body )
+            );
+        }
+        return $cont;
+    }):    
+    ( 
+        H::div( 'class="span4"',        
+            H::h3('News Heading 1').
+            H::p('The body of this news article goes here. This would pull from your database of articles.').
+            H::a('href="#" class="btn"','Read Article') 
+        ).
+        H::div( 'class="span4"',        
+            H::h3('News Heading 2').
+            H::p('The body of this news article goes here. This would pull from your database of articles.').
+            H::a('href="#" class="btn"','Read Article') 
+        ).
+        H::div( 'class="span4"',        
+            H::h3('News Heading 3').
+            H::p('The body of this news article goes here. This would pull from your database of articles.').
+            H::a('href="#" class="btn"','Read Article') 
+        )
+    )
+)
 
-{% block title %}News{% endblock %}
-
-{% block subtitle %}<h1 class="page-header">News</h1>{% endblock %}
-
-{% block content %}
-    {% if items %}
-        <div class="row-fluid">
-            {% for item in items %}
-                <div class="span4">
-                    <h3>{{ item.title }}</h3>
-
-                    <p>{{ item.body }}</p>
-                </div>
-            {% endfor %}
-        </div>
-    {% else %}
-        <div class="row-fluid">
-            <div class="span4">
-                <h3>News Heading 1</h3>
-
-                <p>The body of this news article goes here. This would pull from your database of articles.</p>
-                <a href="#" class="btn">Read Article</a>
-            </div>
-
-            <div class="span4">
-                <h3>News Heading 2</h3>
-
-                <p>The body of this news article goes here. This would pull from your database of articles.</p>
-                <a href="#" class="btn">Read Article</a>
-            </div>
-
-            <div class="span4">
-                <h3>News Heading 3</h3>
-
-                <p>The body of this news article goes here. This would pull from your database of articles.</p>
-                <a href="#" class="btn">Read Article</a>
-            </div>
-        </div>
-    {% endif %}
-{% endblock %}
+];

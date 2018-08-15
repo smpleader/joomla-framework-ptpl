@@ -1,11 +1,9 @@
-<?php return [] ; ?>
-
-{% block title %}Add/Edit Article{% endblock %}
-
-{% block subtitle %}<h1 class="page-header">Add/Edit Article</h1>{% endblock %}
-
-{% block content %}
-    <form>
-        <input type="text" name="title" value="{{ item.title }}"/>
-    </form>
-{% endblock %}
+<?php  use App\View\Renderer\H;
+extract($this->data);
+return [
+    'title'=>'Add/Edit Article' ,
+    'subtitle'=> H::h1('class="page-header"', 'Add/Edit Article') ,
+    'content'=> H::form(
+        H::input( 'type="text" name="title"', $item->title) 
+    )
+];
